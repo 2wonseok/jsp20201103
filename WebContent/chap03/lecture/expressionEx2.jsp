@@ -16,39 +16,34 @@ pageEncoding="UTF-8"%>
 <title>이원석</title>
 </head>
 <body>
-
 <%
-int i = 3;
+java.util.Map<String, String> map = new java.util.HashMap<>();
+map.put("java", "script");
+map.put("html", "css");
+map.put("dbms", "oracle");
+map.put("servlet", "jsp");
+map.put("jquery", "react");
+map.put("python", "django");
 %>
-	<h1>Lorem ipsum dolor.</h1>
-
+<ul>
 <%
-out.write(i);
-out.print(i);
+for (java.util.Map.Entry<String, String> entry : map.entrySet()) {
 %>
-
+<li>
 <%
-out.print("<h1>");
-out.print("hello");
-out.print("</h1>");
-%>
-
-<%
-out.print("<h2>");
-out.print(new java.util.Date());
-out.print("</h2>");
+out.print(entry.getKey());
+out.print(": ");
+out.print(entry.getValue());
 %>
 
+<%= entry.getKey() %> : <%= entry.getValue() %>
+
+
+</li>
 <%
-if (i > 0) {
-	out.print("<h3>");
-	out.print("i가 0보다 크다");
-	out.print("</h3>");
-} else {
-	out.print("<h3>");
-	out.print("i가 0보다 작다");
-	out.print("</h3>");
 }
 %>
+</ul>
+
 </body>
 </html>

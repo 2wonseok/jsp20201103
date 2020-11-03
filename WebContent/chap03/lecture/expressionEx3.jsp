@@ -16,39 +16,25 @@ pageEncoding="UTF-8"%>
 <title>이원석</title>
 </head>
 <body>
-
 <%
-int i = 3;
-%>
-	<h1>Lorem ipsum dolor.</h1>
+java.util.Set<Integer> lotto = new java.util.HashSet<>();
 
-<%
-out.write(i);
-out.print(i);
-%>
-
-<%
-out.print("<h1>");
-out.print("hello");
-out.print("</h1>");
-%>
-
-<%
-out.print("<h2>");
-out.print(new java.util.Date());
-out.print("</h2>");
-%>
-
-<%
-if (i > 0) {
-	out.print("<h3>");
-	out.print("i가 0보다 크다");
-	out.print("</h3>");
-} else {
-	out.print("<h3>");
-	out.print("i가 0보다 작다");
-	out.print("</h3>");
+while (lotto.size() < 6) {
+	int rand = (int) (Math.random() * 45 + 1);
+	lotto.add(rand);
 }
 %>
+<ul>
+<% 
+for (int lottos : lotto) {
+%>
+<li><%= lottos %> </li>
+<%
+}
+%>
+
+</ul>
+
+
 </body>
 </html>

@@ -18,5 +18,5 @@ pageEncoding="UTF-8"%>
 <body>
 <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem explicabo illum sunt mollitia soluta maxime adipisci eveniet perspiciatis architecto vitae nisi magni assumenda consectetur debitis rem aut officia. Temporibus excepturi.</h1>
 
-<body>
+</body>
 </html>

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,39 +17,44 @@ pageEncoding="UTF-8"%>
 <title>이원석</title>
 </head>
 <body>
-
+<h1>Lorem ipsum dolor.</h1>
 <%
-int i = 3;
-%>
-	<h1>Lorem ipsum dolor.</h1>
-
-<%
-out.write(i);
-out.print(i);
+String name = "java";
 %>
 
-<%
-out.print("<h1>");
-out.print("hello");
-out.print("</h1>");
-%>
+<%= name %>
 
+<hr />
 <%
-out.print("<h2>");
-out.print(new java.util.Date());
-out.print("</h2>");
+java.util.List<String> list = new java.util.ArrayList<>();
+list.add("java");
+list.add("html");
+list.add("css");
+list.add("jquery");
+list.add("jsp");
 %>
-
+<ul>
 <%
-if (i > 0) {
-	out.print("<h3>");
-	out.print("i가 0보다 크다");
-	out.print("</h3>");
-} else {
-	out.print("<h3>");
-	out.print("i가 0보다 작다");
-	out.print("</h3>");
+for (String item : list) {
+%>
+	<li><%= item %></li>
+<%
 }
 %>
+</ul>
+
+<hr />
+
+<%
+String status = "primary";
+%>
+
+<h1 class="text-<%= status %>">Lorem ipsum dolor.</h1>
+
+
+
+
+
+
 </body>
 </html>
