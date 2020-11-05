@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
 </head>
 <body>
 <div class="container">
-	<form action="login.jsp" method="post">
+	<form action="loginConfirm.jsp" method="post">
 		<div class="form-group">
 	    <label for="exampleInputEmail1">Email address</label>
 	    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -29,11 +29,8 @@ pageEncoding="UTF-8"%>
 	    <label for="exampleInputPassword1">Password</label>
 	    <input type="password" name="pw" class="form-control" id="exampleInputPassword1">
 	  </div>
-	  <div class="form-group form-check">
-	    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-	    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-	  </div>
-	  <button type="submit" class="btn btn-primary">로그인</button>
+	  <button type="submit" class="btn btn-success">로그인</button>
+	  <button type="button" class="btn btn-primary" onclick="location.href='joinForm.jsp'">회원가입</button>
 	</form>
 </div>
 

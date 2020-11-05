@@ -18,24 +18,34 @@ pageEncoding="UTF-8"%>
 <title>이원석</title>
 </head>
 <body>
+	<h1>회원가입 페이지</h1>
 <div class="container">
-	<form action="login.jsp" method="post">
+	<form action="mainPage.jsp" name="joinform" method="post">
 		<div class="form-group">
-	    <label for="exampleInputEmail1">Email address</label>
+	    <label for="exampleInputEmail1">이메일</label>
 	    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 	    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 	  </div>
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">Password</label>
+	    <label for="exampleInputPassword1">비밀번호</label>
 	    <input type="password" name="pw" class="form-control" id="exampleInputPassword1">
 	  </div>
-	  <div class="form-group form-check">
-	    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-	    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+	  <div class="form-group">
+	    <label for="exampleInputName">이름</label>
+	    <input type="text" name="name" class="form-control">
 	  </div>
-	  <button type="submit" class="btn btn-primary">로그인</button>
+	  <div class="form-group">
+	    <label for="exampleInputGender">성별: </label>
+	    남 <input type="radio" name="gender" value="male" >
+	    여 <input type="radio" name="gender" value="famale" >
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputArea">지역</label>
+	    <input type="text" name="area" class="form-control" id="exampleInputPassword1">
+	  </div>
+	  <button type="submit" class="btn btn-success">회원가입</button>
+	  <button type="button" class="btn btn-primary" onclick="location.href='login.jsp'">돌아가기</button>
 	</form>
 </div>
-
 </body>
 </html>

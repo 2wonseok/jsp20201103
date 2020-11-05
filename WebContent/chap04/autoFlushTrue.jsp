@@ -1,19 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ page buffer="1kb" autoFlush="true" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<%
-	String email = request.getParameter("email");
-	String pw = request.getParameter("pw");
-	if (email != null && email.equals("lws3793@naver.com") && pw.equals("1234")) {
-		pageContext.getSession().setAttribute("email", email); // 다음 페이지로 넘길 파라미터 이름과 값을 입력
-    pageContext.getSession().setAttribute("pw", pw); // 다음 페이지로 넘길 파라미터 이름과 값을 입력
-		response.sendRedirect("index.jsp");
-	} else {
-
-
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +19,13 @@ pageEncoding="UTF-8"%>
 <title>이원석</title>
 </head>
 <body>
-	이메일 또는 패스워드가 틀립니다. <br/>
-	<button onclick="location.href = 'loginEx1.jsp'" class="btn-sm btn-danger mt-1">돌아가기</button>
+	<%
+		for (int i = 0; i < 1000; i++) {
+	%>
+		1234
+	<%
+		}
+	%>
+
 </body>
 </html>
-<%
-	}
-%>

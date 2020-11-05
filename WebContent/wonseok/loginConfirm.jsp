@@ -8,7 +8,7 @@ pageEncoding="UTF-8"%>
 	if (email != null && email.equals("lws3793@naver.com") && pw.equals("1234")) {
 		pageContext.getSession().setAttribute("email", email); // 다음 페이지로 넘길 파라미터 이름과 값을 입력
     pageContext.getSession().setAttribute("pw", pw); // 다음 페이지로 넘길 파라미터 이름과 값을 입력
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("mainPage.jsp");
 	} else {
 
 
@@ -27,11 +27,11 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>이원석</title>
+<title>로그인 확인 페이지</title>
 </head>
 <body>
 	이메일 또는 패스워드가 틀립니다. <br/>
-	<button onclick="location.href = 'loginEx1.jsp'" class="btn-sm btn-danger mt-1">돌아가기</button>
+	<button onclick="location.href = 'login.jsp'" class="btn-sm btn-danger mt-1">돌아가기</button>
 </body>
 </html>
 <%
