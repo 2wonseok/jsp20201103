@@ -2,7 +2,6 @@
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,34 +18,40 @@ pageEncoding="UTF-8"%>
 <title>이원석</title>
 </head>
 <body>
-	<h1>회원가입 페이지</h1>
+
+<jsp:include page="navbar.jsp"/>
+
 <div class="container">
-	<form action="mainPage.jsp" name="joinform" method="post">
+
+<%
+	String code = request.getParameter("code");
+	if (code != null && code.equals("1")) {
+%>
+	<div class="alert alert-danger" role="alert">
+  	이메일 또는 패스워드가 일치하지 않습니다.
+	</div>
+<%
+	}
+%>
+
+	<form action="main.jsp" method="post">
 		<div class="form-group">
-	    <label for="exampleInputEmail1">이메일</label>
+	    <label for="exampleInputEmail1">Email address</label>
 	    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 	    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 	  </div>
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">비밀번호</label>
+	    <label for="exampleInputPassword1">Password</label>
 	    <input type="password" name="pw" class="form-control" id="exampleInputPassword1">
 	  </div>
-	  <div class="form-group">
-	    <label for="exampleInputName">이름</label>
-	    <input type="text" name="name" class="form-control">
+	  <div class="form-group form-check">
+	    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+	    <label class="form-check-label" for="exampleCheck1">Check me out</label>
 	  </div>
-	  <div class="form-group">
-	    <label for="exampleInputGender">성별: </label>
-	    남 <input type="radio" name="gender" value="male" >
-	    여 <input type="radio" name="gender" value="famale" >
-	  </div>
-	  <div class="form-group">
-	    <label for="exampleInputArea">지역</label>
-	    <input type="text" name="area" class="form-control" id="exampleInputPassword1">
-	  </div>
-	  <button type="submit" class="btn btn-success">회원가입</button>
-	  <button type="button" class="btn btn-primary" onclick="location.href='login.jsp'">돌아가기</button>
+	  <input type="submit" class="btn btn-success" value="로그인">
+	  <input type="button" class="btn btn-primary" value="회원가입" onclick="location.href='joinForm.jsp'">
 	</form>
 </div>
+
 </body>
 </html>

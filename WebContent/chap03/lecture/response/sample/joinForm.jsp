@@ -2,7 +2,6 @@
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +18,9 @@ pageEncoding="UTF-8"%>
 <title>이원석</title>
 </head>
 <body>
-	<h1>회원가입 페이지</h1>
 <div class="container">
-	<form action="mainPage.jsp" name="joinform" method="post">
+	<h2>회원등록</h2>
+	<form action="mypage.jsp" name="joinform" method="post">
 		<div class="form-group">
 	    <label for="exampleInputEmail1">이메일</label>
 	    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -48,5 +47,6 @@ pageEncoding="UTF-8"%>
 	  <button type="button" class="btn btn-primary" onclick="location.href='login.jsp'">돌아가기</button>
 	</form>
 </div>
+
 </body>
 </html>

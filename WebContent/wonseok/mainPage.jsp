@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ page import="wonseok.UserInfo" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
@@ -23,6 +24,18 @@ pageEncoding="UTF-8"%>
 <jsp:include page="navbar.jsp" />
 <body>
 <%
+	List<UserInfo> abc = (List<UserInfo>) application.getAttribute("user");
+	if (abc == null) {
+		abc = new ArrayList<>();
+		application.setAttribute("user", abc);
+	}
+	abc.add(new UserInfo(request.getParameter("email"), request.getParameter("name"), 
+											 request.getParameter("gender"), request.getParameter("area")));
+	
+	System.out.println(abc.get(0));
+	System.out.println(abc.get(1));
+	
+	
 	String email2 = (String) pageContext.getSession().getAttribute("email");
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
