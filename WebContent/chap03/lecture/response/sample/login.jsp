@@ -52,6 +52,5 @@ pageEncoding="UTF-8"%>
 	  <input type="button" class="btn btn-primary" value="회원가입" onclick="location.href='joinForm.jsp'">
 	</form>
 </div>
-
 </body>
 </html>
