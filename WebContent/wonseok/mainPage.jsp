@@ -3,6 +3,15 @@ pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="wonseok.UserInfo" %>
 <% request.setCharacterEncoding("UTF-8"); %>
+<%
+	String id = request.getParameter("id");
+	String name = request.getParameter("name");
+	String gender = request.getParameter("gender");
+	String area = request.getParameter("area");
+	
+	if (id != null && name != null && gender != null && area != null) {
+		
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,34 +28,19 @@ pageEncoding="UTF-8"%>
 <title>이원석</title>
 </head>
 <script>
-	alert("로그인 성공");
+	alert("등록이 완료되었습니다.");
 </script>
 <jsp:include page="navbar.jsp" />
 <body>
 <%
-	List<UserInfo> abc = (List<UserInfo>) application.getAttribute("user");
-	if (abc == null) {
-		abc = new ArrayList<>();
-		application.setAttribute("user", abc);
+	List<UserInfo> list = (List<UserInfo>) application.getAttribute("user");
+	if (list == null) {
+		list = new ArrayList<>();
+		application.setAttribute("user", list);
 	}
-	abc.add(new UserInfo(request.getParameter("email"), request.getParameter("name"), 
+	list.add(new UserInfo(request.getParameter("id"), request.getParameter("name"), 
 											 request.getParameter("gender"), request.getParameter("area")));
 	
-	System.out.println(abc.get(0));
-	System.out.println(abc.get(1));
-	
-	
-	String email2 = (String) pageContext.getSession().getAttribute("email");
-	String name = request.getParameter("name");
-	String email = request.getParameter("email");
-	String area = request.getParameter("area");
-	String gender = request.getParameter("gender");
-	
-	List<String> list = new ArrayList<>();
-	list.add(name);	
-	list.add(email);	
-	list.add(area);	
-	list.add(gender);	
 %>
 
 <div class="container">
@@ -54,17 +48,27 @@ pageEncoding="UTF-8"%>
 		<table class="table">
 			<h3>로그인 정보</h3>
 			<tr>
+				<th>NO</th>
+				<th>아이디</th>
 				<th>이름</th>
-				<th>이메일</th>
 				<th>지역</th>
 				<th>성별</th>
 			</tr>
+<%
+	int cnt = 1;
+	for (UserInfo users : list) {
+%>			
 			<tr>
-				<td><%= list.get(0) %></td>
-				<td><%= email %></td>
-				<td><%= list.get(2)	 %></td>
-				<td><%= gender %></td>
+				<td><%= cnt %></td>
+				<td><%= users.getId() %></td>
+				<td><%= users.getName() %></td>
+				<td><%= users.getGender() %></td>
+				<td><%= users.getArea() %></td>
 			</tr>
+<%
+	cnt++;
+	}
+%>			
 		</table>
 	</div>
 
@@ -72,3 +76,8 @@ pageEncoding="UTF-8"%>
 </body>
 <jsp:include page="footer.jsp" />
 </html>
+<%
+	} else {
+		response.sendRedirect("joinForm.jsp?code=1");
+	}
+%>

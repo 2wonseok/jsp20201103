@@ -32,6 +32,17 @@ pageEncoding="UTF-8"%>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
+    	<ul class="navbar-nav mr-auto">
+    		<li class="nav-item">
+	        <a class="nav-link" href="loginForm.jsp">로그인</a>
+	      </li>  
+    		<li class="nav-item">
+	        <a class="nav-link" href="logout.jsp">로그아웃</a>
+	      </li>  
+    		<li class="nav-item">
+	        <a class="nav-link" href="joinForm.jsp">회원등록</a>
+	      </li>  
+	    </ul>    
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>

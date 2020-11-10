@@ -1,26 +1,26 @@
 package wonseok;
 
 public class UserInfo {
-	private String email;
+	private String id;
 	private String name;
 	private String gender;
 	private String area;
 	
 	
 	
-	public UserInfo(String email, String name, String gender, String area) {
+	public UserInfo(String id, String name, String gender, String area) {
 		super();
-		this.email = email;
+		this.id = id;
 		this.name = name;
 		this.gender = gender;
 		this.area = area;
 	}
 	
-	public String getEmail() {
-		return email;
+	public String getId() {
+		return id;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void getId(String id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;

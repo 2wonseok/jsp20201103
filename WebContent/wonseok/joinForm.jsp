@@ -19,16 +19,32 @@ pageEncoding="UTF-8"%>
 <title>이원석</title>
 </head>
 <body>
-	<h1>회원가입 페이지</h1>
+<%
+	String code = request.getParameter("code");
+	if (code != null && code.equals("1")) {
+%>
+<div class="alert alert-danger" role="alert">
+	모든 항목을 입력해주세요.		
+</div>
+<%
+	} else if (code != null && code.equals("2")) {
+%>
+<div class="alert alert-danger" role="alert">
+	로그아웃 되었습니다. 다시 로그인해주세요.
+</div>
+<%
+	}
+%>
 <div class="container">
-	<form action="mainPage.jsp" name="joinform" method="post">
+	<h2>회원등록 페이지</h2>
+	<form action="mainPage.jsp"  method="post">
 		<div class="form-group">
-	    <label for="exampleInputEmail1">이메일</label>
-	    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+	    <label for="exampleInputEmail1">ID</label>
+	    <input type="text" name="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 	    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 	  </div>
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">비밀번호</label>
+	    <label for="exampleInputPassword1">password</label>
 	    <input type="password" name="pw" class="form-control" id="exampleInputPassword1">
 	  </div>
 	  <div class="form-group">
