@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="chap09.Cookies" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<%
-	response.addCookie(Cookies.createCookie("name", "이원석"));
-	response.addCookie(Cookies.createCookie("id", "leewonseok", request.getContextPath()+"/chap09", -1));
-
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,12 +15,16 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>Cookies 사용 예</title>
+<title>이원석</title>
 </head>
 <body>
+<form action="loginProcess.jsp" method="post">
+	id : <input type="text" name="id" /> <br />
+	pw : <input type="password" name="pw" /> <br />
+	<input type="checkbox" name="remember" value="on" /> remember me <br />
+	<input type="submit" value="로그인" class="btn-sm btn-success mt-1" />
 
-Cookies를 사용하여 쿠키 생성
-
+</form>
 
 </body>
 </html>

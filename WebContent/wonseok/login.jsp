@@ -22,7 +22,7 @@ pageEncoding="UTF-8"%>
 	<form action="loginConfirm.jsp" method="post">
 		<div class="form-group">
 	    <label for="exampleInputEmail1">Email address</label>
-	    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+	    <input type="text" name="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 	    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 	  </div>
 	  <div class="form-group">

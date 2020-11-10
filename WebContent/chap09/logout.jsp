@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="chap09.Cookies" %>
+<%@ page import="chap09.*"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%
-	response.addCookie(Cookies.createCookie("name", "이원석"));
-	response.addCookie(Cookies.createCookie("id", "leewonseok", request.getContextPath()+"/chap09", -1));
-
+	response.addCookie(Cookies.createCookie("AUTH", "", "/", 0));
 %>
 <!DOCTYPE html>
 <html>
@@ -21,12 +19,11 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>Cookies 사용 예</title>
+<title>로그아웃</title>
 </head>
 <body>
 
-Cookies를 사용하여 쿠키 생성
-
+로그아웃하였습니다.
 
 </body>
 </html>

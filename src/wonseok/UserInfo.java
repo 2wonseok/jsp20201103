@@ -5,12 +5,14 @@ public class UserInfo {
 	private String name;
 	private String gender;
 	private String area;
+	private String pw;
 	
 	
 	
-	public UserInfo(String id, String name, String gender, String area) {
+	public UserInfo(String id, String pw, String name, String gender, String area) {
 		super();
 		this.id = id;
+		this.pw = pw;
 		this.name = name;
 		this.gender = gender;
 		this.area = area;
@@ -39,6 +41,14 @@ public class UserInfo {
 	}
 	public void setArea(String area) {
 		this.area = area;
+	}
+
+	public String getPw() {
+		return pw;
+	}
+
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 	
 	

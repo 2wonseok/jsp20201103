@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="chap09.Cookies" %>
+<%@ page import="chap09.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%
-	response.addCookie(Cookies.createCookie("name", "이원석"));
-	response.addCookie(Cookies.createCookie("id", "leewonseok", request.getContextPath()+"/chap09", -1));
-
+	Cookies cookies = new Cookies(request);
 %>
 <!DOCTYPE html>
 <html>
@@ -21,12 +19,19 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>Cookies 사용 예</title>
+<title>로그인 여부 검사</title>
 </head>
 <body>
-
-Cookies를 사용하여 쿠키 생성
-
-
+<%
+	if (cookies.exists("AUTH")) {
+%>
+아이디 "<%= cookies.getValue("AUTH") %>"로 로그인 한 상태
+<%
+	} else {
+%>
+로그인 하지 않은 상태
+<%
+	}
+%>
 </body>
 </html>

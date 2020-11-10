@@ -27,9 +27,6 @@ pageEncoding="UTF-8"%>
 
 <title>이원석</title>
 </head>
-<script>
-	alert("등록이 완료되었습니다.");
-</script>
 <jsp:include page="navbar.jsp" />
 <body>
 <%
@@ -38,15 +35,15 @@ pageEncoding="UTF-8"%>
 		list = new ArrayList<>();
 		application.setAttribute("user", list);
 	}
-	list.add(new UserInfo(request.getParameter("id"), request.getParameter("name"), 
-											 request.getParameter("gender"), request.getParameter("area")));
+	list.add(new UserInfo(request.getParameter("id"), request.getParameter("pw"), request.getParameter("name"),
+												request.getParameter("area"), request.getParameter("gender")));
 	
 %>
 
 <div class="container">
 	<div class="container">
 		<table class="table">
-			<h3>로그인 정보</h3>
+			<h3>회원 정보</h3>
 			<tr>
 				<th>NO</th>
 				<th>아이디</th>

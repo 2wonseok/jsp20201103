@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="chap09.Cookies" %>
+<%@ page import="wonseok.UserInfo" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%
-	response.addCookie(Cookies.createCookie("name", "이원석"));
-	response.addCookie(Cookies.createCookie("id", "leewonseok", request.getContextPath()+"/chap09", -1));
-
+	String id = (String) request.getSession().getAttribute("id");
+	List<UserInfo> list = (List<UserInfo>) application.getAttribute("user");
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -21,12 +21,34 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>Cookies 사용 예</title>
+<title>이원석</title>
 </head>
 <body>
+<div class="container">
+	<div class="container">
+		<table class="table">
+			<h3>마이 페이지</h3>
+			<tr>
+				<th>NO</th>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>지역</th>
+				<th>성별</th>
+			</tr>
 
-Cookies를 사용하여 쿠키 생성
+			
+			<tr>
+				<td>1</td>
+				<td><%= id %></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+		</table>
+	</div>
 
+</div>
 
 </body>
 </html>
