@@ -37,7 +37,7 @@ pageEncoding="UTF-8"%>
 %>
 <div class="container">
 	<h2>회원등록 페이지</h2>
-	<form action="mainPage.jsp"  method="post">
+	<form action="mainPage.jsp" name="joinform" method="post" onsubmit="return check()">
 		<div class="form-group">
 	    <label for="exampleInputEmail1">ID</label>
 	    <input type="text" name="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -60,9 +60,59 @@ pageEncoding="UTF-8"%>
 	    <label for="exampleInputArea">지역</label>
 	    <input type="text" name="area" class="form-control" id="exampleInputPassword1">
 	  </div>
-	  <button type="submit" class="btn btn-success">회원가입</button>
+	  <input type="submit" class="btn btn-success" value="회원가입"/>
 	  <button type="button" class="btn btn-primary" onclick="location.href='login.jsp'">돌아가기</button>
 	</form>
 </div>
 </body>
 </html>
+<script>
+
+function check() {
+	
+  if(joinform.id.value == "") {
+
+    alert("ID를 입력해주세요.");
+
+    joinform.id.focus();
+
+    return false;
+
+  } else if(joinform.pw.value == "") {
+
+	    alert("PASSWORD를 입력해 주세요.");
+	
+	    joinform.pw.focus();
+	
+	    return false;
+
+  
+	} else if (joinform.name.value == "") {
+
+			alert("이름을 입력해 주세요.");
+
+			joinform.name.focus();
+
+			return false;
+
+	} else if (joinform.gender.value == "") {
+
+			alert("성별을 선택해 주세요.");
+
+			/* joinform.gender.focus(); */
+
+			return false;
+
+	} else if (joinform.area.value == "") {
+
+			alert("지역을 입력해 주세요.");
+
+			joinform.area.focus();
+
+			return false;
+
+	} else
+			return true;
+
+	}
+</script>

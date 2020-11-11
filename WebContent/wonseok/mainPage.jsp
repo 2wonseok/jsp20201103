@@ -8,8 +8,9 @@ pageEncoding="UTF-8"%>
 	String name = request.getParameter("name");
 	String gender = request.getParameter("gender");
 	String area = request.getParameter("area");
+	String code = request.getParameter("code");
 	
-	if (id != null && name != null && gender != null && area != null) {
+	if (id != null && name != null && gender != null && area != null || code.equals("7")) {
 		
 %>
 <!DOCTYPE html>
@@ -35,9 +36,10 @@ pageEncoding="UTF-8"%>
 		list = new ArrayList<>();
 		application.setAttribute("user", list);
 	}
+  if (code == null) { 
 	list.add(new UserInfo(request.getParameter("id"), request.getParameter("pw"), request.getParameter("name"),
 												request.getParameter("area"), request.getParameter("gender")));
-	
+  } 
 %>
 
 <div class="container">
@@ -75,6 +77,6 @@ pageEncoding="UTF-8"%>
 </html>
 <%
 	} else {
-		response.sendRedirect("joinForm.jsp?code=1");
+		 response.sendRedirect("joinForm.jsp?code=1"); 
 	}
 %>

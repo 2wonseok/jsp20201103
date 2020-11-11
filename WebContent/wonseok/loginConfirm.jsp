@@ -22,7 +22,7 @@ pageEncoding="UTF-8"%>
 			pageContext.getSession().setAttribute("id", (String) id); // 다음 페이지로 넘길 파라미터 이름과 값을 입력
 			response.sendRedirect("myPage.jsp");
 		} else {
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("login.jsp?code=3");
 		}
 		
 	} else {

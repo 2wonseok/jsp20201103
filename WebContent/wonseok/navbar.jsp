@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="mainPage.jsp?code=7">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -37,7 +37,7 @@ pageEncoding="UTF-8"%>
 	        <a class="nav-link" href="login.jsp">로그인</a>
 	      </li>  
     		<li class="nav-item">
-	        <a class="nav-link" href="logout.jsp">로그아웃</a>
+	        <a class="nav-link" href="logout.jsp?">로그아웃</a>
 	      </li>  
     		<li class="nav-item">
 	        <a class="nav-link" href="joinForm.jsp">회원등록</a>

@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ page import="chap05.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%
-	session.invalidate();
-	response.sendRedirect("login.jsp?code=4");
+	List<Post> list = (List<Post>) application.getAttribute("list");
+	int num = Integer.parseInt(request.getParameter("id"));
+	Post post = list.get(num);
 %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +22,16 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>로그아웃</title>
+<title>상세페이지</title>
 </head>
 <body>
+
+제목 : <input type="text" value="<%= post.getTitle() %>" redonly/> <br/>
+<textarea cols="30" rows="10" redonly><%= post.getBody() %></textarea> <br/>
+
+<a href="post.jsp">게시글 작성</a>
+
+
 
 
 </body>

@@ -2,10 +2,6 @@
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<%
-	session.invalidate();
-	response.sendRedirect("login.jsp?code=4");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +15,19 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>로그아웃</title>
+<title>이원석</title>
 </head>
 <body>
+<h1>pageContext는 하나의 페이지의 영역</h1>
+<%
+	pageContext.setAttribute("pageAttr1", "pageVal1");
+	request.setAttribute("reqAttr1", "reqVal1");
+%>
 
+<%= pageContext.getAttribute("pageAttr1") %> <br/>
+<%= request.getAttribute("reqAttr1") %>
+
+<jsp:include page="pageContextEx1Sub.jsp"></jsp:include>
 
 </body>
 </html>

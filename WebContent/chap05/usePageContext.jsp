@@ -2,10 +2,6 @@
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<%
-	session.invalidate();
-	response.sendRedirect("login.jsp?code=4");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +15,19 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>로그아웃</title>
+<title>pageContext 기본 객체</title>
 </head>
 <body>
+<%
+	HttpServletRequest httpRequest = (HttpServletRequest) pageContext.getRequest();
+%>
+
+request 기본 객체와 pageContext.getRequest()의 동일여부 : <%= request == httpRequest %> <br/>
+
+pageContext.getOut() 메서드를 사용한 데이터 출력 : <% pageContext.getOut().println("안녕하세요!"); %>
+
+
+
 
 
 </body>

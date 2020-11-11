@@ -2,10 +2,6 @@
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<%
-	session.invalidate();
-	response.sendRedirect("login.jsp?code=4");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +15,23 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>로그아웃</title>
+<title>이원석</title>
 </head>
 <body>
+<h1>pageContext findAttribute</h1>
+<%
+	pageContext.setAttribute("myAttr1", "pageval1");
+	request.setAttribute("myAttr1", "reqval1");
+	session.setAttribute("myAttr1", "sesval1");
+	application.setAttribute("myAttr1", "appval1");
+%>
+
+<%= pageContext.findAttribute("myAttr1") %>
+
+
+
+
+
 
 
 </body>

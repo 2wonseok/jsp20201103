@@ -7,6 +7,8 @@ pageEncoding="UTF-8"%>
 	String id = (String) request.getSession().getAttribute("id");
 	List<UserInfo> list = (List<UserInfo>) application.getAttribute("user");
 	
+	UserInfo member = null;
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -23,6 +25,7 @@ pageEncoding="UTF-8"%>
 
 <title>이원석</title>
 </head>
+<jsp:include page="navbar.jsp" />
 <body>
 <div class="container">
 	<div class="container">
@@ -34,21 +37,39 @@ pageEncoding="UTF-8"%>
 				<th>이름</th>
 				<th>지역</th>
 				<th>성별</th>
+				<th>삭제</th>
 			</tr>
 
-			
+<%
+	for (int i = 0; i < list.size(); i++) {
+		if(list.get(i).getId().equals(id)) {
+			member = list.get(i);
+%>
 			<tr>
 				<td>1</td>
-				<td><%= id %></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><%= member.getId() %></td>
+				<td><%= member.getName() %></td>
+				<td><%= member.getArea() %></td>
+				<td><%= member.getGender() %></td>
+				<td><input type="button" class="btn-sm btn-danger" value="회원 삭제" onclick="remove()"/></td>
 			</tr>
 			
+<script>
+	function remove() {
+		 if(confirm("정말 삭제하시겠습니까?")) {
+			alert('삭제가 완료되었습니다.');
+		  location.href="remove.jsp?id=<%= i %>";
+		 } else {
+		 	return;
+		 }
+		}
+</script>			
+<%			
+		}
+	}
+%>			
 		</table>
 	</div>
-
 </div>
-
 </body>
 </html>

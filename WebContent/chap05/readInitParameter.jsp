@@ -2,10 +2,6 @@
 pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<%
-	session.invalidate();
-	response.sendRedirect("login.jsp?code=4");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +15,22 @@ pageEncoding="UTF-8"%>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>로그아웃</title>
+<title>초기화 파라미터 읽어오기</title>
 </head>
 <body>
+초기화 파라미터 목록
+<ul>
+<%
+	Enumeration<String> initParamEnum = application.getInitParameterNames();
+	while (initParamEnum.hasMoreElements()) {
+		String initParamName = initParamEnum.nextElement();
+%>
+<li><%= initParamName %> = <%= application.getInitParameter(initParamName) %></li>
+<%
+	}
+%>
+</ul>
+
 
 
 </body>
