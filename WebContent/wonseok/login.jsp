@@ -28,7 +28,7 @@ pageEncoding="UTF-8"%>
 	</div>
 <%
 	} else if (code != null && code.equals("4")) {
-		%>
+%>
 	<div class="alert alert-danger" role="alert">
 		로그아웃 되었습니다. 다시 로그인해주세요.
 	</div>
