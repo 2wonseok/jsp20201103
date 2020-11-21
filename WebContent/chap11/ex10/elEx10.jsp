@@ -1,34 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ page import="chap08.Car" %>
 <% request.setCharacterEncoding("UTF-8"); %>
+<%
+List<Car> list = new ArrayList<>();
+for (int i = 0; i < 5; i++) {
+	Car car= new Car();
+	list.add(car);
+	car.setName("kia" + i);
+}
+
+pageContext.setAttribute("cars", list);
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<title>INFO</title>
+<title>Insert title here</title>
 </head>
 <body>
-include 전 name 파라미터 값 : <%= request.getParameter("name") %>
-
-<hr/>
-
-<jsp:include page="body_sub.jsp">
-	<jsp:param name="name" value="최범균" />
-</jsp:include>
-
-<hr/>
-
-include 후 name 파라미터 값 : <%= request.getParameter("name") %>
-
+${cars[0].name } <br />
+${cars[1]["name"] } <br />
 </body>
 </html>

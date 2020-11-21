@@ -1,34 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
+
+<jsp:useBean id="car" scope="page" class="chap08.Car"></jsp:useBean>
+<%
+//car.setName("kia");
+%>
+<jsp:setProperty property="name" name="car" value="kia"/>
+<jsp:setProperty property="speed" name="car" value="90"/>
+<%--- 
+<jsp:setProperty property="stop" name="car" value="false"/>
+ --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<title>INFO</title>
+<title>Insert title here</title>
 </head>
 <body>
-include 전 name 파라미터 값 : <%= request.getParameter("name") %>
-
-<hr/>
-
-<jsp:include page="body_sub.jsp">
-	<jsp:param name="name" value="최범균" />
-</jsp:include>
-
-<hr/>
-
-include 후 name 파라미터 값 : <%= request.getParameter("name") %>
-
+<%= car.getName() %> <br/>
+<%= car.getSpeed() %>
 </body>
 </html>

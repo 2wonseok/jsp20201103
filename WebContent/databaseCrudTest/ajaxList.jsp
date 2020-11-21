@@ -47,35 +47,173 @@ List<Member> list = MemberDao.memberList();
 </body>
 </html>
 <script>
-	function getMemberList() {
-		
-		alert('크크킄');
-		
-		$.ajax({
-			url:"mainPage.jsp", 
-			dataType:"json",
-			Type:"post",
-			data:{},
-      success : function(response) {
-    	  
-    	  alert('sadada');
-    	  
-      }
+    function fromReset(){
+        $(document).ready(function() {  
+            $("#btnReset").click(function() { 
+                $("form")[1].reset();  
+            });  
+        }); 
 
-			});
-		
-	
-		
-	}
+    }
+
+    function getMemberList() {
+
+              
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        //alert(1);
+
+        url = '/wcms/users/ajaxUserList';
+            
+        $.ajax({
+            url: url,
+            type: 'post',
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            cache: false,
+            async: false,
+            success: function (response) {
+                    var cell = response.rows;
+                    var count = cell.length;
+                    
+                    //alert(count);
+
+                    var csTable = $("#memList").empty();
+                    for (var i = 0; i < cell.length; i++) {
+                        
+                        var userId = cell[i].id;
+                        var userName = cell[i].name;
+                        var userEmail = cell[i].email;
+                        var userCreatedDate = cell[i].created_at;
+                        
+
+                        var cellText = ""
+                                    +"<tr>"
+                                    +"<td>"+userId+"</td>"
+                                    +"<td><a href='#1' onclick=\"getMemberLoad('"+userId+"')\">"+userName+"</td>"
+                                    +"<td>"+userEmail+"</td>"
+                                    +"<td>"+userCreatedDate+"</td>"
+                                    +"</tr>";
+                                    
+                        csTable.append(cellText);
+                    }
+
+                    if (cell.length < 1) {
+                        var cellText = ""
+                                    +"<tr>"
+                                    +"<td> NO DATA </td>"
+                                    +"</tr>";
+                    }
+
+            } 
+        });
+
+        
+    }
+
+    function getMemberLoad(id) {
+            
+        // alert(id);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        //alert(1);
+
+        url = '/wcms/users/ajaxUserShow';
+
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: { id : id },
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            cache: false,
+            async: false,
+            success: function (response) {
+                var cell = response.rows[0];
+                // var test = cell.email;
+            
+                
+                // alert(1);
+                // alert(test);
+
+                
+                // var count = cell.length;
+                $('#id').val(cell.id);
+                $('#name').val(cell.name);
+                $('#email').val(cell.email);   
+                $('#password').val(cell.password);          
+
+            }
+        });
+    }
+
+    function getMemberInsert() {
+        // alert(id);
+        var id = $('input#id').val();
+        var name = $("#name").val();
+        // var email = $("#email").val()+'@'+ $("#email2").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+
+        var msg = "입력 정보를 저장(추가)하시겠습니까?";
+
+        if (confirm(msg)) {
 
 
+            $.ajax({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                url: '/wcms/users/ajaxUserUpdateSubmit',
+                data: {
+                    id : id,
+                    name: name,
+                    email: email,
+                    password: password
+                },
+                type: 'post',
+                dataType: 'json',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                cache: false,
+                success: function (response) {
+                    getMemberList();
+                //alert(response.code)
+
+                }
+            });
+
+        } else {
+            return false;
+        }
+    }
+
+    function getMemberDelete(id) {
+
+        var id = $("#id").val();
+        var msg = "정말 삭제하시겠습니까?";
+
+        if (confirm(msg)) {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/wcms/users/delDestroy',
+                data: { id: id },
+                success: function (data) {
+                    getMemberList();
+                }
+
+            });
+
+        }
 
 
+    }
 
-	getMemberList();
-
-
-
+    getMemberList();
 </script>
 
 

@@ -6,7 +6,8 @@ import java.sql.*;
 public class MemberDao {
 	public static List<Member> memberSearch(String searchN, String searchKey) {
 		List<Member> search = new ArrayList<Member>();
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String url = "jdbc:oracle:thin:@localhost:1521:orcl"; // 학원
+		String url = "jdbc:oracle:thin:@localhost:1522:orcl3"; //노트북
 		String user = "c##lwsdb";
 		String password = "admin";
 		String searchName = searchN;
@@ -49,7 +50,8 @@ public class MemberDao {
 	
 	public static List<String> memberDelete(String del, String mid) {
 		List<String> dels = new ArrayList<String>();
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String url = "jdbc:oracle:thin:@localhost:1521:orcl"; // 학원
+		String url = "jdbc:oracle:thin:@localhost:1522:orcl3"; //노트북
 		String user = "c##lwsdb";
 		String password = "admin";
 		
@@ -79,7 +81,8 @@ public class MemberDao {
 	public static List<Member> memberUpdate(String mid, String pw, String uname, String umail, String birth, 
 											String area, String hobby) {
 		List<Member> list = new ArrayList<Member>();
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String url = "jdbc:oracle:thin:@localhost:1521:orcl"; // 학원
+		String url = "jdbc:oracle:thin:@localhost:1522:orcl3"; //노트북
 		String user = "c##lwsdb";
 		String password = "admin";
 		
@@ -118,7 +121,8 @@ public class MemberDao {
 											String birth, String area, String hobby) {
 		List<Member> add = new ArrayList<Member>();
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String url = "jdbc:oracle:thin:@localhost:1521:orcl"; // 학원
+		String url = "jdbc:oracle:thin:@localhost:1522:orcl3"; //노트북
 		String user = "c##lwsdb";
 		String password = "admin";
 		
@@ -161,7 +165,8 @@ public class MemberDao {
 	public static List<Member> memberList(String mid) {
 		List<Member> list = new ArrayList<Member>();
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String url = "jdbc:oracle:thin:@localhost:1521:orcl"; // 학원
+		String url = "jdbc:oracle:thin:@localhost:1522:orcl3"; //노트북
 		String user = "c##lwsdb";
 		String password = "admin";
 		String myid = mid; 
@@ -204,7 +209,8 @@ public class MemberDao {
 		Statement stmt = null;
 		ResultSet rs = null;
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String url = "jdbc:oracle:thin:@localhost:1521:orcl"; // 학원
+		String url = "jdbc:oracle:thin:@localhost:1522:orcl3"; //노트북
 		String user = "c##lwsdb";
 		String password = "admin";
 		

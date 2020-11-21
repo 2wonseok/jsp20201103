@@ -37,7 +37,7 @@ pageEncoding="UTF-8"%>
 	        <a class="nav-link" href="login.jsp">로그인</a>
 	      </li>  
     		<li class="nav-item">
-	        <a class="nav-link" href="logout.jsp?">로그아웃</a>
+	        <a class="nav-link" href="login.jsp">로그아웃</a>
 	      </li>  
     		<li class="nav-item">
 	        <a class="nav-link" href="joinForm.jsp">회원등록</a>
