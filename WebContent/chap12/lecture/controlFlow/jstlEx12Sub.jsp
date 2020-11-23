@@ -20,5 +20,11 @@
 		sub.jsp
 	</div>
 </c:if>
+
+<c:if test="${not dark }">
+	<div style="background-color: blue; color: white;">
+		sub.jsp
+	</div>
+</c:if>
 </body>
 </html>
