@@ -15,9 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${not empty param.dark or not empty dark}
-${not dark}
-<c:if test="${not empty param.dark or not empty dark}" var="dark" scope="session">
+<c:if test="${not empty param.dark or dark}" var="dark" scope="session">
 	<div style="background-color: black; color: white;">
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum culpa nesciunt facere sequi voluptas libero laboriosam repellat accusamus recusandae commodi nihil dicta aliquid atque iusto ex praesentium fugit! Omnis magni.
 	</div>
