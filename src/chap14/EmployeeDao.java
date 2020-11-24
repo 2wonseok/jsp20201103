@@ -7,7 +7,7 @@ public class EmployeeDao {
 	public static List<Employee> getMemberView(String id) {
 		List<Employee> list = new ArrayList<Employee>();
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String url = "jdbc:oracle:thin:@localhost:1522:orcl3";
 		String user = "c##mydbms";
 		String password = "admin";
 		int eno = Integer.parseInt(id);

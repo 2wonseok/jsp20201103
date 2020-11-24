@@ -3,6 +3,7 @@ pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="chap14.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%
 Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -25,6 +26,7 @@ while (rs.next()) {
 	
 }
 
+pageContext.setAttribute("myList", list);
 stmt.close();
 con.close();
 
@@ -49,16 +51,12 @@ con.close();
 		<th>사번</th>
 		<th>이름</th>
 	</tr>
-	<%
-	for (Employee emp : list) {	
-	%>
-	<tr>
-		<td><a href="joinEx7Detail.jsp?id=<%= emp.getEno() %>"><%= emp.getEno() %></a></td>
-		<td><%= emp.getEname() %></td>
+	<c:forEach var="memList" items="${myList }" >
+		<tr>
+		<td><a href="<%=request.getContextPath() %>/chap14/lecture/select/joinEx7Detail.jsp?id=${memList.eno }">${memList.eno }</a></td>
+		<td>${memList.ename }</td>
 	</tr>
-	<%
-	}
-	%>
+	</c:forEach>
 	</table>
 </div>
 </body>
