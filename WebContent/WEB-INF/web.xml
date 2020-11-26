@@ -25,4 +25,65 @@
 		<param-name>debuglever</param-name>
 		<param-value>5</param-value>
 	</context-param>
+	
+	<servlet>
+		<servlet-name>servlet01</servlet-name>
+		<servlet-class>chap17.ServletEx01</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>servlet01</servlet-name>
+		<url-pattern>/ex01</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>servlet01</servlet-name>
+		<url-pattern>/ex011</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Servlet9</servlet-name>
+		<servlet-class>chap17.ServletEx09</servlet-class>
+		<init-param>
+			<param-name>dburl</param-name>
+			<param-value>jdbc:oracle:thin:@localhost:1522:orcl3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbid</param-name>
+			<param-value>c##mydbms</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbpw</param-name>
+			<param-value>admin</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Servlet9</servlet-name>
+		<url-pattern>/ex09</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletList</servlet-name>
+		<servlet-class>wonseok.ServletList</servlet-class>
+		<init-param>
+			<param-name>dburl</param-name>
+			<param-value>jdbc:oracle:thin:@localhost:1522:orcl3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbid</param-name>
+			<param-value>c##lwsdb</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbpw</param-name>
+			<param-value>admin</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ServletList</servlet-name>
+		<url-pattern>/memberList</url-pattern>
+	</servlet-mapping>
 </web-app>
