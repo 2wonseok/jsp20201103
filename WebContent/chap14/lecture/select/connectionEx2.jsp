@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
 	Statement stmt = null; 
 	ResultSet rs = null;
 	
-	String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+	String url = "jdbc:oracle:thin:@localhost:1522:orcl3";
 	String id = "c##mydbms";
 	String pw = "admin";
 	con = DriverManager.getConnection(url, id, pw);
