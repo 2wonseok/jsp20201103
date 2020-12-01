@@ -100,4 +100,34 @@
 		<servlet-name>ControllerUsingURI</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
+	
+	<filter>
+		<filter-name>filter01</filter-name>
+		<filter-class>chap19.lecture.Filter01</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>filter02</filter-name>
+		<filter-class>chap19.lecture.Filter02</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>filter02</filter-name>
+		<url-pattern>/filter/ex01</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>filter01</filter-name>
+		<url-pattern>/filter/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>request-encoding</filter-name>
+		<filter-class>chap19.lecture.Filter03ReqEncoding</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>request-encoding</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
 </web-app>
