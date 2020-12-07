@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class AddServlet
@@ -87,18 +88,13 @@ public class AddServlet extends HttpServlet {
 	}
 	
 	private int delete(String id) {
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "c##mydbms";
-		String password ="admin";
-		
 		String sql = "DELETE FROM post "
 								+"WHERE id=?";
 		int del = 0;
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
 	
-			Connection con = DriverManager.getConnection(url, user, password);
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, id);
@@ -116,18 +112,13 @@ public class AddServlet extends HttpServlet {
 	}
 	
 	private int update(Post pUpdate) {
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "c##mydbms";
-		String password ="admin";
-
 		String sql = "UPDATE post SET title= ?, body= ? "
 								+"WHERE id =?";
 		int upRow = 0;
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
 	
-			Connection con = DriverManager.getConnection(url, user, password);
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, pUpdate.getTitle());
@@ -147,19 +138,13 @@ public class AddServlet extends HttpServlet {
 	}
 
 	private int insert(Post post) {
-		
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "c##mydbms";
-		String password ="admin";
-
 		String sql = "INSERT INTO post (title, body) "
 								+"VALUES (?, ?) ";
 		int row = 0;
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
 	
-			Connection con = DriverManager.getConnection(url, user, password);
+			Connection con = DBUtil.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, post.getTitle());

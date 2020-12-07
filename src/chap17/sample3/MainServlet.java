@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class MainServlet
@@ -52,17 +53,17 @@ public class MainServlet extends HttpServlet {
 	private List<Post> getPosts() {
 		List<Post> list = new ArrayList<Post>();
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "c##mydbms";
-		String password ="admin";
+//		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//		String user = "c##mydbms";
+//		String password ="admin";
 
 		String sql = "SELECT id, title "
-								+"FROM post ";
+								+"FROM post ORDER BY id DESC ";
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
 	
-			Connection con = DriverManager.getConnection(url, user, password);
+//			Connection con = DriverManager.getConnection(url, user, password);
+			Connection con = DBUtil.getConnection();
 			Statement stmt = con.createStatement();
 			
 			ResultSet rs = stmt.executeQuery(sql);
