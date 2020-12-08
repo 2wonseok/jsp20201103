@@ -33,7 +33,7 @@ public class Ex2ServletContextListener implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent sce)  { 
-    	System.out.println("우리 앱 실행 EX2");
+//    	System.out.println("우리 앱 실행 EX2");
     	ServletContext application = sce.getServletContext();
     	String val = application.getInitParameter("my-param1");
     	String url = application.getInitParameter("jdbcUrl");
@@ -44,10 +44,10 @@ public class Ex2ServletContextListener implements ServletContextListener {
     	DBUtil.setUser(user);
     	DBUtil.setPassword(password);
     	
-    	System.out.println(val);
-    	System.out.println(url);
-    	System.out.println(user);
-    	System.out.println(password);
+//    	System.out.println(val);
+//    	System.out.println(url);
+//    	System.out.println(user);
+//    	System.out.println(password);
     	
     	try {
 				Connection con = DriverManager.getConnection(url, user, password);
